@@ -1,0 +1,5 @@
+# Figure out the server type.
+# nslookup 42.fr > Server: 10.51.1.253
+# host 10.51.1.253 253.1.51.10.in-addr.arpa domain name pointer dhcp-dns.42.us.org.
+
+dhcp

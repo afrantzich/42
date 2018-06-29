@@ -1,0 +1,5 @@
+# Find the command that kills the background command’s process
+# kill [PID] to be certain
+
+pkill -n tail
+#kill the newest tail command

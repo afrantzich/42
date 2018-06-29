@@ -1,0 +1,4 @@
+# Figure out the exact size of each folder of /var
+# numbers are in bytes
+
+du -s /var/*

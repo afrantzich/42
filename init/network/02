@@ -1,0 +1,3 @@
+# Identify and display the Ethernet interface characteristics
+
+ifconfig en0

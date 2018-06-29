@@ -1,0 +1,6 @@
+# Find the service which makes it possible to run specific tasks
+# following a regular schedule
+
+cron
+command "crontab -e" allows you to create the tasks to be performed  
+using specific syntax to define time/frequency

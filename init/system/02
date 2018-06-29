@@ -1,0 +1,5 @@
+# What command can you use to rename your system?
+
+hostname [name]
+
+# restart terminal after... there's probably a command that could work just the same

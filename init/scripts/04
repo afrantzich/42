@@ -1,0 +1,18 @@
+# Write a script which monitors the modifications made to the /etc/crontab
+# file and sends an e-mail to root if the file is modified. Create a
+# scheduled task to run this script everyday at midnight.
+
+# first create checksum file
+# md5sum /etc/crontab > ~/scripts/cron_check (make sure /etc/crontab exists)
+
+md5sum /etc/crontab | md5sum -c ~/scripts/cron_checksum > ~/scripts/cron_status
+s=$(cat cron_status | cut -d ' ' -f 2)
+if [ $s != OK ]
+then
+	echo "auto-generated warning" | mail -s "crontab altered" root
+fi
+
+# crontab -e ... 00 0 * * * /bin/sh ~/scripts/cron_checker
+# this script does not change the prior hash each time.
+# add another md5sum /etc/crontab > ~/scripts/cron_check to do this...
+# preferably as an else statement
