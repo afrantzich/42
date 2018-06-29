@@ -6,7 +6,7 @@
 /*   By: afrantzi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/16 13:41:52 by afrantzi          #+#    #+#             */
-/*   Updated: 2018/04/24 17:12:30 by afrantzi         ###   ########.fr       */
+/*   Updated: 2018/05/24 23:30:51 by afrantzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,5 +86,6 @@ int				ft_power(int nb, int power);
 void			ft_memswap(void *a, void *b);
 int				ft_countwords(const char *s, char c);
 int				ft_nbrlen(int n);
+int				*ft_nbrsplit(char const *s, char c);
 
 #endif

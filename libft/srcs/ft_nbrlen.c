@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_nbrlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afrantzi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/16 17:08:52 by afrantzi          #+#    #+#             */
-/*   Updated: 2018/04/17 14:49:57 by afrantzi         ###   ########.fr       */
+/*   Created: 2018/04/24 17:07:28 by afrantzi          #+#    #+#             */
+/*   Updated: 2018/05/25 20:13:56 by afrantzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-char	*ft_strncat(char *s1, const char *s2, size_t n)
+int	ft_nbrlen(int n)
 {
-	size_t i;
-	size_t j;
+	int digits;
 
-	i = ft_strlen(s1);
-	j = 0;
-	while (s2[j] && j < n)
-		s1[i++] = s2[j++];
-	s1[i] = '\0';
-	return (s1);
+	digits = 1;
+	if (n < 0)
+		digits++;
+	while ((n /= 10) != 0)
+		digits++;
+	return (digits);
 }
