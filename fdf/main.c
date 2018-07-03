@@ -6,7 +6,7 @@
 /*   By: afrantzi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/23 17:18:17 by afrantzi          #+#    #+#             */
-/*   Updated: 2018/06/24 19:49:04 by afrantzi         ###   ########.fr       */
+/*   Updated: 2018/07/02 15:08:58 by afrantzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ static int	deal_mouse(int key, int x, int y, t_map *m)
 		m->m -= 1;
 	else if (key == 1)
 	{
-		m->h = x - m->xb;
-		m->v = y - m->yb;
+		m->h = x - m->xb - (m->col - m->row) / 2 * m->xb;
+		m->v = y - m->row * m->yb + (m->row - m->col) / 2 * m->yb;
 	}
 	draw_map(m);
 	return (0);
