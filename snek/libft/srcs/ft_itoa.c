@@ -6,7 +6,7 @@
 /*   By: afrantzi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/19 16:20:21 by afrantzi          #+#    #+#             */
-/*   Updated: 2018/04/24 17:14:24 by afrantzi         ###   ########.fr       */
+/*   Updated: 2018/07/08 20:26:16 by afrantzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,15 @@ char		*ft_itoa(int n)
 	digits = ft_nbrlen(n) + 1;
 	if (NULL == (s = (char*)malloc(sizeof(char) * digits)))
 		return (NULL);
-	s[digits] = '\0';
+	s[digits - 1] = '\0';
 	if (n == 0)
 	{
 		s[0] = '0';
 		return (s);
 	}
-	while (--digits >= 0)
+	while (--digits > 0)
 	{
-		s[digits] = crunch(n);
+		s[digits - 1] = crunch(n);
 		n /= 10;
 	}
 	return (s);

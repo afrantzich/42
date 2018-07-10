@@ -6,7 +6,7 @@
 /*   By: afrantzi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/23 17:18:17 by afrantzi          #+#    #+#             */
-/*   Updated: 2018/07/03 16:09:07 by afrantzi         ###   ########.fr       */
+/*   Updated: 2018/07/08 21:46:22 by afrantzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	free_stuff(t_map *m)
 	while (traverse)
 	{
 		save = traverse->next;
-		free(traverse);
+		ft_memdel((void**)&traverse);
 		traverse = save;
 	}
 }
@@ -39,6 +39,8 @@ void	quit_restart(t_map *m, int q)
 
 static int	deal_key(int key, t_map *m)
 {
+	if (key == 53)
+		quit_restart(m, 0);
 	if (m->game_over == 0)
 	{
 		if ((key == 126 || key == 13) && m->d != 's')
@@ -51,13 +53,8 @@ static int	deal_key(int key, t_map *m)
 			m->d = 'd';
 		move(m);
 	}
-	else
-	{
-		if (key == 49 || key == 36)
-			quit_restart(m, 1);
-	}
-	if (key == 53)
-		quit_restart(m, 0);
+	else if (key == 49 || key == 36)
+		quit_restart(m, 1);
 	return (0);
 }
 

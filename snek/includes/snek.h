@@ -6,7 +6,7 @@
 /*   By: afrantzi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/15 17:19:33 by afrantzi          #+#    #+#             */
-/*   Updated: 2018/07/03 15:50:03 by afrantzi         ###   ########.fr       */
+/*   Updated: 2018/07/08 12:59:12 by afrantzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,6 @@ t_node	*init_node(t_node *body);
 t_node	*spawn_apple(t_node *a, t_map *m, t_node *traverse);
 int		move(t_map *m);
 void	draw_map(t_map *m);
+void	score_screen(t_map *m);
 
 #endif

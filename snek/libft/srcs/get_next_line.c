@@ -6,11 +6,10 @@
 /*   By: afrantzi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/18 01:06:40 by afrantzi          #+#    #+#             */
-/*   Updated: 2018/05/24 22:45:28 by afrantzi         ###   ########.fr       */
+/*   Updated: 2018/07/08 21:44:12 by afrantzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
 #include "libft.h"
 #include <unistd.h>
 #include <stdlib.h>
@@ -33,13 +32,11 @@ int	actually_get_next_line(char **save, char **line, int fd, char *temp)
 
 int	get_next_line(const int fd, char **line)
 {
-	static char **save;
+	static char *save[4900];
 	char		buf[BUFF_SIZE + 1];
 	char		*temp;
 	int			ret;
 
-	if (!save)
-		save = (char**)malloc(sizeof(char*) * 4900);
 	while ((ret = read(fd, buf, BUFF_SIZE)) > 0)
 	{
 		buf[ret] = '\0';
@@ -47,7 +44,7 @@ int	get_next_line(const int fd, char **line)
 		{
 			temp = save[fd];
 			save[fd] = ft_strjoin(save[fd], buf);
-			free(temp);
+			ft_strdel(&temp);
 		}
 		else
 			save[fd] = ft_strdup((const char*)buf);

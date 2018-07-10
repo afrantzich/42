@@ -6,7 +6,7 @@
 /*   By: afrantzi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/03 12:52:35 by afrantzi          #+#    #+#             */
-/*   Updated: 2018/07/03 12:54:06 by afrantzi         ###   ########.fr       */
+/*   Updated: 2018/07/08 21:46:25 by afrantzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static void	check_status(t_map *m)
 {
 	t_node *traverse;
 
-	traverse = m->chain->next;
+	traverse = m->chain;
 	if (m->x < 0 || m->x > WIDTH || m->y < 0 || m->y > HEIGHT)
 		m->game_over = 1;
 	else if (m->x == m->apple->x && m->y == m->apple->y)
@@ -79,7 +79,10 @@ int		move(t_map *m)
 			m->x += CELL;
 		check_status(m);
 		if (m->game_over != 0)
+		{
+			score_screen(m);
 			return (0);
+		}
 		mlx_clear_window(m->mlx, m->win);
 		draw_map(m);
 	}

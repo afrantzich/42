@@ -6,14 +6,14 @@
 #    By: afrantzi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/15 17:25:33 by afrantzi          #+#    #+#              #
-#    Updated: 2018/07/03 15:49:30 by afrantzi         ###   ########.fr        #
+#    Updated: 2018/07/09 19:33:01 by afrantzi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = snek
 FLAGS = -Wall -Wextra -Werror -o
 INC = -I includes/
-SRC = main.c initialize.c move.c draw_stuff.c
+SRC = main.c initialize.c move.c draw_stuff.c score.c
 LIB = -L libft/ -lft -L minilibx_macos/ -lmlx
 FW = -framework OpenGL -framework Appkit
 
